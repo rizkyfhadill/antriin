@@ -72,7 +72,6 @@ export function Navbar({ user, onLogout, rshsMode = true }: { user?: any; onLogo
             <span className="text-[9px] sm:text-[10px] tracking-[-0.01em] font-[600] text-[#00A69E] dark:text-[#5EEAD4] truncate max-w-[140px] sm:max-w-[180px] lg:max-w-none">
               <span className="hidden md:inline">Kemenkes RS Hasan Sadikin</span>
               <span className="md:hidden">Kemenkes RSHS</span>
-              <span className="hidden xl:inline text-slate-400 dark:text-slate-500"> • Pasteur 38 Bandung</span>
             </span>
           </div>
         </Link>
