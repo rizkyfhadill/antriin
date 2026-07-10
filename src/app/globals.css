@@ -1,0 +1,381 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --navy: #00A69E;
+  --navy-soft: #008F88;
+  --ink: #0B3D3A;
+  --ink-soft: #134E4A;
+  --blue: #3B82F6;
+  --blue-hover: #2563EB;
+  --blue-light: #EFF6FF;
+  --rshs-teal: #00A69E;
+  --rshs-teal-hover: #008F88;
+  --rshs-teal-dark: #007A74;
+  --rshs-teal-light: #E6F7F5;
+  --rshs-lime: #C8D400;
+  --rshs-lime-dark: #B4BF00;
+  --rshs-lime-light: #F4F7D4;
+  --slate-50: #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-600: #475569;
+  --slate-800: #1E293B;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 28px;
+  --shadow-soft: 0 2px 8px rgba(0,166,158,0.06), 0 8px 24px rgba(0,166,158,0.04);
+  --shadow-medium: 0 8px 24px rgba(0,166,158,0.08), 0 16px 48px rgba(0,166,158,0.06);
+  --shadow-large: 0 16px 48px rgba(0,166,158,0.12), 0 32px 80px rgba(0,166,158,0.08);
+  --text-primary: #0B3D3A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+}
+
+.dark {
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+}
+
+* {
+  font-family: "Inter", "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01","ss02","cv01","cv02","lig1";
+}
+
+/* Display font untuk heading */
+.font-display, h1, h2, h3, .heading {
+  font-family: "Manrope", "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01","ss02","cv01","cv02","dlig";
+  letter-spacing: -0.02em;
+}
+
+/* Mono untuk tiket */
+.font-mono-rshs, .ticket-number {
+  font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  font-feature-settings: "tnum", "ss01";
+  letter-spacing: -0.04em;
+}
+
+html { scrollbar-gutter: stable; scroll-behavior: smooth; }
+body { background: #FCFCFD; color: var(--ink); }
+.dark body { background: #020617; color: #F8FAFC; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--slate-50); }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+.dark ::-webkit-scrollbar-track { background: #0B3D3A; }
+.dark ::-webkit-scrollbar-thumb { background: #334155; }
+
+/* Selection */
+::selection { background: rgba(0, 166, 158, 0.18); }
+
+/* Focus ring */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0,166,158,0.18);
+  border-color: var(--rshs-teal) !important;
+}
+
+/* Dot grid pattern */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(15,23,42,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.dark .bg-dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
+
+/* RSHS brand gradient */
+.bg-rshs-gradient {
+  background: linear-gradient(135deg, #00A69E 0%, #00A69E 60%, #C8D400 100%);
+}
+.text-rshs-gradient {
+  background: linear-gradient(100deg, #00A69E 0%, #00A69E 50%, #C8D400 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card premium */
+.card-rshs {
+  background: white;
+  border: 1px solid rgba(0,166,158,0.12);
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0,166,158,0.04), 0 8px 24px rgba(0,166,158,0.04);
+  transition: all 0.3s ease;
+}
+.card-rshs:hover {
+  border-color: rgba(0,166,158,0.3);
+  box-shadow: 0 8px 24px rgba(0,166,158,0.08), 0 16px 48px rgba(0,166,158,0.06);
+  transform: translateY(-2px);
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+.scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* ================== HOVER KUNING LIME (UNIVERSAL) ================== */
+
+/* Button hover yellow - untuk semua button default */
+.btn-hover-yellow {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-hover-yellow:hover {
+  background-color: #C8D400 !important;
+  color: #0B3D3A !important;
+  border-color: #C8D400 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(200,212,0,0.35);
+}
+.btn-hover-yellow:active {
+  transform: translateY(0);
+}
+
+/* Card hover yellow - glow kuning */
+.card-hover-yellow {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover-yellow:hover {
+  border-color: rgba(200,212,0,0.4) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(200,212,0,0.15), 0 24px 56px rgba(0,0,0,0.08);
+}
+.dark .card-hover-yellow:hover {
+  box-shadow: 0 12px 32px rgba(200,212,0,0.25), 0 24px 56px rgba(0,0,0,0.2);
+}
+
+/* Icon / badge hover yellow */
+.icon-hover-yellow {
+  transition: all 0.3s ease;
+}
+.icon-hover-yellow:hover {
+  background-color: #C8D400 !important;
+  color: #0B3D3A !important;
+  border-color: #C8D400 !important;
+}
+
+/* Text link hover yellow */
+.link-hover-yellow {
+  transition: color 0.25s ease;
+  position: relative;
+}
+.link-hover-yellow:hover {
+  color: #C8D400 !important;
+}
+.link-hover-yellow::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #C8D400;
+  transition: width 0.3s ease;
+}
+.link-hover-yellow:hover::after {
+  width: 100%;
+}
+
+/* Pill / badge hover yellow */
+.pill-hover-yellow {
+  transition: all 0.3s ease;
+}
+.pill-hover-yellow:hover {
+  background-color: #C8D400 !important;
+  color: #0B3D3A !important;
+  border-color: #C8D400 !important;
+}
+
+/* Step number hover yellow */
+.step-hover-yellow {
+  transition: all 0.3s ease;
+}
+.step-hover-yellow:hover {
+  background-color: #C8D400 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(200,212,0,0.35);
+}
+
+/* Nav link hover yellow (underline gradient) */
+.nav-link-yellow {
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-link-yellow:hover {
+  color: #C8D400 !important;
+}
+.nav-link-yellow::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 4px;
+  height: 2px;
+  background: linear-gradient(90deg, #00A69E, #C8D400);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link-yellow:hover::after {
+  transform: scaleX(1);
+}
+
+/* Row / item list hover yellow */
+.row-hover-yellow {
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+.row-hover-yellow:hover {
+  background-color: rgba(200,212,0,0.08) !important;
+}
+.dark .row-hover-yellow:hover {
+  background-color: rgba(200,212,0,0.12) !important;
+}
+
+/* Theme toggle hover yellow */
+.theme-toggle-yellow {
+  transition: all 0.3s ease;
+}
+.theme-toggle-yellow:hover {
+  transform: scale(1.1) rotate(12deg);
+  background-color: #C8D400 !important;
+  color: #0B3D3A !important;
+  border-color: #C8D400 !important;
+  box-shadow: 0 4px 12px rgba(200,212,0,0.4);
+}
+.theme-toggle-yellow:active {
+  transform: scale(0.95) rotate(0deg);
+}
+
+/* Stat card hover yellow with icon rotation */
+.stat-hover-yellow {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stat-hover-yellow:hover {
+  border-color: rgba(200,212,0,0.5) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(200,212,0,0.18), 0 24px 56px rgba(0,0,0,0.08);
+}
+.stat-hover-yellow:hover .stat-icon {
+  transform: scale(1.15) rotate(-6deg);
+}
+.stat-icon {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* CTA button with arrow slide */
+.cta-arrow-slide .cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.cta-arrow-slide:hover .cta-arrow {
+  transform: translateX(6px);
+}
+
+/* Shine sweep for buttons */
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+.hover-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.hover-shine:hover::before {
+  left: 100%;
+}
+
+/* Number pop animation */
+.number-pop {
+  animation: numberPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes numberPop {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Pulse ring for CTA */
+.hover-pulse-ring {
+  position: relative;
+}
+.hover-pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  box-shadow: 0 0 0 0 rgba(200,212,0,0.5);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.hover-pulse-ring:hover::after {
+  opacity: 1;
+  animation: pulseRing 1.2s ease-out infinite;
+}
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(200,212,0,0.5); }
+  100% { box-shadow: 0 0 0 16px rgba(200,212,0,0); }
+}
+
+/* Gradient border hover yellow */
+.gradient-border-yellow {
+  position: relative;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+.gradient-border-yellow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #C8D400, #00A69E);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.gradient-border-yellow:hover::before {
+  opacity: 1;
+}
+
+/* Animations */
+@keyframes float {
+  0%,100% { transform: translateY(0) }
+  50% { transform: translateY(-6px) }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%) }
+  100% { transform: translateX(100%) }
+}
+@keyframes slideUp {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes pulseSoft {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
